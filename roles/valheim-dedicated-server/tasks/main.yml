@@ -10,15 +10,24 @@
 
 # - name: Parse Distro and Version
 ## apt 
-- name: Update the package cashe 
+
+    
+# - name: Install SteamCMD Dependecies
+#   apt: 
+#     pkg: 
+#     - software-properties-common
+#     - lib32gcc-s1
+
+- include: update_upgrade.yaml
+
+- name: Install SteamCMD Dependecies
   apt: 
-    update_cache: yes
+    pkg: 
+    - lib32gcc1
+    - lib32stdc++6
 
 ## apt upgrade
-- name: Upgrade the packages
-  apt: 
-    upgrade: yes
-    autoremove: yes
+
 
 - name: Add Multiverse Repository - Focal
   apt_repository: 
@@ -40,11 +49,6 @@
     repo: "{{ focalSecurityMultiverse }}"
     state: present    
 
-- name: Install SteamCMD Dependecies
-  apt: 
-    pkg: 
-    - software-properties-common
-    - lib32gcc-s1
 
 - name: Add i386 Architecture
   command: dpkg --add-architecture i386

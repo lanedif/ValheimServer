@@ -1,0 +1,7 @@
+- name: Update the package cashe 
+  apt: 
+    update_cache: yes
+- name: Upgrade the packages
+  apt: 
+    upgrade: yes
+    autoremove: yes
