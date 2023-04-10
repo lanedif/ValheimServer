@@ -1,0 +1,5 @@
+- hosts: ValheimServer3
+  gather_facts: yes
+  become: true
+  roles:
+    - valheim-dedicated-server

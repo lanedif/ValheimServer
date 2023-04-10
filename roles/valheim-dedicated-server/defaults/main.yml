@@ -1,0 +1,25 @@
+---
+# defaults file for valheim-dedicated-server
+
+focalMultiverse: "deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ focal multiverse"
+focalUpdatesMultiverse: "deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ focal-updates multiverse"
+focalBackportsMultiverse: "deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse"
+focalSecurityMultiverse: "deb http://security.ubuntu.com/ubuntu focal-security multiverse"
+
+#   apt_repository: 
+#     repo: "deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ focal multiverse"
+#     state: present
+
+# - name: Add Multiverse Repository - Focal Updates
+#   apt_repository: 
+#     repo: "deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ focal-updates multiverse"
+#     state: present
+
+# - name: Add Multiverse Repository - Focal Backports
+#   apt_repository: 
+#     repo: "deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse"
+#     state: present    
+
+# - name: Add Multiverse Repository - Focal Security
+#   apt_repository: 
+#     repo: "deb http://security.ubuntu.com/ubuntu focal-security multiverse"

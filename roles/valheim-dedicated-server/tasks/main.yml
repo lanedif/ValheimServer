@@ -1,0 +1,73 @@
+---
+# https://valheim.fandom.com/wiki/Valheim_Dedicated_Server
+
+# tasks file for valheim-dedicated-server
+
+## Check release if it matches 2004
+# - name: Verify release is 20.04
+#   command: lsb_release -a
+#   register: release_output
+
+# - name: Parse Distro and Version
+## apt 
+- name: Update the package cashe 
+  apt: 
+    update_cache: yes
+
+## apt upgrade
+- name: Upgrade the packages
+  apt: 
+    upgrade: yes
+    autoremove: yes
+
+- name: Add Multiverse Repository - Focal
+  apt_repository: 
+    repo: "{{ focalMultiverse }}"
+    state: present
+
+- name: Add Multiverse Repository - Focal Updates
+  apt_repository: 
+    repo: "{{ focalUpdatesMultiverse }}"
+    state: present
+
+- name: Add Multiverse Repository - Focal Backports
+  apt_repository: 
+    repo: "{{ focalBackportsMultiverse }}"
+    state: present    
+
+- name: Add Multiverse Repository - Focal Security
+  apt_repository: 
+    repo: "{{ focalSecurityMultiverse }}"
+    state: present    
+
+- name: Install SteamCMD Dependecies
+  apt: 
+    pkg: 
+    - software-properties-common
+    - lib32gcc-s1
+
+- name: Add i386 Architecture
+  command: dpkg --add-architecture i386
+
+
+- name: Update the package cashe 
+  apt: 
+    update_cache: yes
+
+## apt upgrade
+- name: Upgrade the packages
+  apt: 
+    upgrade: yes
+    autoremove: yes
+    
+- name: Update the package cashe 
+  apt: 
+    name: steamcmd
+
+## Create steam user
+
+## Install SteamCMD
+
+
+
+
